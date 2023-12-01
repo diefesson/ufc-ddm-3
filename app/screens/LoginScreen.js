@@ -1,4 +1,4 @@
-import { Button, Pressable, Text, TextInput, View } from "react-native/";
+import { Text, TextInput, View } from "react-native/";
 import { useState } from "react";
 import MainStyle from "../style/MainStyle";
 import ButtonPrimary from "../components/ButtonPrimary";
@@ -6,7 +6,7 @@ import ButtonPrimary from "../components/ButtonPrimary";
 const expectedUsername = "admin";
 const expectedPassword = "12345678";
 
-export default function LoginScreen({navigation}) {
+export default function LoginScreen() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
