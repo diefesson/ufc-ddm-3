@@ -1,12 +1,12 @@
 import { Text, TextInput, View } from "react-native/";
 import { useState } from "react";
 import MainStyle from "../style/MainStyle";
-import ButtonPrimary from "../components/ButtonPrimary";
+import CustomButton from "../components/CustomButton";
 
 const expectedUsername = "admin";
 const expectedPassword = "12345678";
 
-export default function LoginScreen() {
+export default function LoginScreen({navigation}) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -34,7 +34,7 @@ export default function LoginScreen() {
           onChangeText={setPassword}
         />
       </View>
-      <ButtonPrimary title="LOGIN" onPress={onLogin} />
+      <CustomButton title="LOGIN" onPress={onLogin} />
     </View>
   );
 }

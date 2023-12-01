@@ -13,15 +13,15 @@ export default StyleSheet.create({
   },
   smallText: {
     color: MainColors.textPrimary,
-    fontSize: 12,
+    fontSize: 14,
   },
   mediumText: {
     color: MainColors.textPrimary,
-    fontSize: 14,
+    fontSize: 20,
   },
   field: {
     flexDirection: "row",
-    alignItems: "center",
+    alignItems: "stretch",
     gap: 10,
   },
   textInput: {
@@ -31,12 +31,11 @@ export default StyleSheet.create({
     borderRadius: 10,
     padding: 8,
   },
-  buttonPrimary:{
-    backgroundColor: MainColors.primary,
+  button:{
     padding: 10,
     borderRadius: 5
   },
-  buttonPrimaryText:{
+  buttonText:{
     color: MainColors.textPrimary,
     fontSize: 16,
     fontWeight: "bold",
