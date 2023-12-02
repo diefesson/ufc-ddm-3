@@ -8,29 +8,29 @@ import { actions } from "../state/Store";
 
 export default function LoginScreen({ navigation }) {
   const dispatch = useDispatch();
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function onLogin() {
-    const user = AuthServiceImpl.auth(username, password);
+  async function onLogin() {
+    const user = await AuthServiceImpl.auth(email, password);
     if (user) {
       dispatch(actions.login(user));
-      navigation.navigate("home")
+      navigation.navigate("home");
     }
   }
 
   return (
     <View style={MainStyle.root}>
       <View style={MainStyle.field}>
-        <Text style={MainStyle.mediumText}>Username:</Text>
+        <Text style={MainStyle.mediumText}>Email:</Text>
         <TextInput
           style={MainStyle.textInput}
-          value={username}
-          onChangeText={setUsername}
+          value={email}
+          onChangeText={setEmail}
         />
       </View>
       <View style={MainStyle.field}>
-        <Text style={MainStyle.mediumText}>Password:</Text>
+        <Text style={MainStyle.mediumText}>Senha:</Text>
         <TextInput
           style={MainStyle.textInput}
           value={password}

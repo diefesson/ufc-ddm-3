@@ -5,10 +5,10 @@ import MainColors from "../style/MainColors";
 import MainStyle from "../style/MainStyle";
 
 export default function TopBar() {
-  const username = useAppSelector((state) => state.user.username);
+  const name = useAppSelector((state) => state.user!.name);
   return (
     <View style={componentStyle.topBar}>
-      <Text style={MainStyle.largeText}>{username}</Text>
+      <Text style={MainStyle.largeText}>{name}</Text>
       <View style={componentStyle.picture}></View>
     </View>
   );

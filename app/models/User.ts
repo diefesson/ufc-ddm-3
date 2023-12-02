@@ -1,3 +1,5 @@
-export default interface User{
-    username: string;
+export default interface User {
+  name: string;
+  email: string;
+  picture: string;
 }
