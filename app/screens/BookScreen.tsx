@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Text, TextInput, View } from "react-native";
 import MainStyle from "../style/MainStyle";
 import CustomButton from "../components/CustomButton";
-import BookServiceImpl from "../service/BookServiceImpl";
+import BookServiceImpl from "../services/BookServiceImpl";
 
 interface Props {
   navigation: any,

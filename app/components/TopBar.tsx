@@ -1,5 +1,6 @@
-import { useAppSelector } from "../reducers";
 import { StyleSheet, Text, View } from "react-native";
+
+import { useAppSelector } from "../state/Store";
 import MainColors from "../style/MainColors";
 import MainStyle from "../style/MainStyle";
 
@@ -23,10 +24,10 @@ const componentStyle = StyleSheet.create({
     padding: 10,
     borderRadius: 10,
   },
-  picture:{
+  picture: {
     borderRadius: 25,
     width: 50,
     height: 50,
-    backgroundColor: MainColors.backgroundTertiary
-  }
+    backgroundColor: MainColors.backgroundTertiary,
+  },
 });

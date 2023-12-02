@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 import { useIsFocused } from "@react-navigation/native";
 import MainStyle from "../style/MainStyle";
 import CustomButton from "../components/CustomButton";
-import BookServiceImpl from "../service/BookServiceImpl";
+import BookServiceImpl from "../services/BookServiceImpl";
 import BookList from "../components/BookList";
-import Book from "../model/Book";
-import { useAppSelector } from "../reducers";
+import Book from "../models/Book";
+import { useAppSelector } from "../state/Store";
 import TopBar from "../components/TopBar";
 
 export default function HomeScreen({ navigation }) {

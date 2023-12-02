@@ -1,4 +1,4 @@
-import Book from "../model/Book";
+import Book from "../models/Book";
 import BookService from "./BookService";
 
 class BookServiceImpl implements BookService {

@@ -1,5 +1,5 @@
 import { StyleSheet, View } from "react-native";
-import Book from "../model/Book";
+import Book from "../models/Book";
 import BookComponent from "./BookComponent";
 
 interface Props {

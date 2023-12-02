@@ -1,4 +1,4 @@
-import { Provider, useDispatch, useSelector } from "react-redux";
+import { Provider } from "react-redux";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import LoginScreen from "./screens/LoginScreen";
@@ -6,7 +6,7 @@ import { StatusBar } from "react-native";
 import NavigatorTheme from "./style/NavigatorTheme";
 import HomeScreen from "./screens/HomeScreen";
 import BookScreen from "./screens/BookScreen";
-import { store } from "./reducers";
+import { store } from "./state/Store";
 
 const Stack = createNativeStackNavigator();
 

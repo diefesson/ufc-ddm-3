@@ -1,4 +1,4 @@
-import Book from "../model/Book";
+import Book from "../models/Book";
 
 export default interface BookService {
   findAll(): Book[];

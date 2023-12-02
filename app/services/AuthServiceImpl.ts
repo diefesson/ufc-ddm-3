@@ -1,4 +1,4 @@
-import User from "../model/User";
+import User from "../models/User";
 import AuthService from "./AuthService";
 
 const credentials = [

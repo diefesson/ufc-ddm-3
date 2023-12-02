@@ -2,9 +2,9 @@ import { Text, TextInput, View } from "react-native/";
 import { useState } from "react";
 import MainStyle from "../style/MainStyle";
 import CustomButton from "../components/CustomButton";
-import AuthServiceImpl from "../service/AuthServiceImpl";
+import AuthServiceImpl from "../services/AuthServiceImpl";
 import { useDispatch } from "react-redux";
-import { slice } from "../reducers";
+import { actions } from "../state/Store";
 
 export default function LoginScreen({ navigation }) {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ export default function LoginScreen({ navigation }) {
   function onLogin() {
     const user = AuthServiceImpl.auth(username, password);
     if (user) {
-      dispatch(slice.actions.login(user));
+      dispatch(actions.login(user));
       navigation.navigate("home")
     }
   }

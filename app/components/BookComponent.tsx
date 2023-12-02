@@ -1,5 +1,5 @@
 import { GestureResponderEvent, StyleSheet, Text, View } from "react-native";
-import Book from "../model/Book";
+import Book from "../models/Book";
 import MainColors from "../style/MainColors";
 import MainStyle from "../style/MainStyle";
 import CustomButton from "./CustomButton";
