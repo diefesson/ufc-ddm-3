@@ -19,6 +19,10 @@ export default StyleSheet.create({
     color: MainColors.textPrimary,
     fontSize: 20,
   },
+  largeText: {
+    color: MainColors.textPrimary,
+    fontSize: 24,
+  },
   field: {
     flexDirection: "column",
     alignItems: "stretch",

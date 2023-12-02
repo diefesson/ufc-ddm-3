@@ -2,16 +2,19 @@ import { Text, TextInput, View } from "react-native/";
 import { useState } from "react";
 import MainStyle from "../style/MainStyle";
 import CustomButton from "../components/CustomButton";
+import AuthServiceImpl from "../service/AuthServiceImpl";
+import { useDispatch } from "react-redux";
+import { slice } from "../reducers";
 
-const expectedUsername = "admin";
-const expectedPassword = "12345678";
-
-export default function LoginScreen({navigation}) {
+export default function LoginScreen({ navigation }) {
+  const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   function onLogin() {
-    if(username == expectedUsername && password == expectedPassword){
+    const user = AuthServiceImpl.auth(username, password);
+    if (user) {
+      dispatch(slice.actions.login(user));
       navigation.navigate("home")
     }
   }
