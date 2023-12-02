@@ -1,4 +1,4 @@
-import { Text, TextInput, View } from "react-native/";
+import { Text, TextInput, View, ToastAndroid } from "react-native/";
 import { useState } from "react";
 import MainStyle from "../style/MainStyle";
 import CustomButton from "../components/CustomButton";
@@ -12,10 +12,12 @@ export default function LoginScreen({ navigation }) {
   const [password, setPassword] = useState("");
 
   async function onLogin() {
-    const user = await AuthServiceImpl.auth(email, password);
-    if (user) {
+    try {
+      const user = await AuthServiceImpl.auth(email, password);
       dispatch(actions.login(user));
       navigation.navigate("home");
+    } catch (error) {
+      ToastAndroid.show("Credenciais incorretas", ToastAndroid.SHORT);
     }
   }
 
