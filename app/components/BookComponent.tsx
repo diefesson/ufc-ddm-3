@@ -18,7 +18,7 @@ export default function ({
   return (
     <View style={stylesheet.card}>
       <Text style={MainStyle.mediumText}>{book.title}</Text>
-      <Text style={MainStyle.smallText}>{book.detail}</Text>
+      <Text style={MainStyle.smallText}>{book.details}</Text>
       <View style={stylesheet.options}>
         <CustomButton title="EDITAR" onPress={() => onEdit(book.id)} />
         <CustomButton type="danger" title="REMOVER" onPress={() => onDelete(book.id)} />

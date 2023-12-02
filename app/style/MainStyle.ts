@@ -5,8 +5,8 @@ export default StyleSheet.create({
   root: {
     flex: 1,
     flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: "flex-start",
+    alignItems: "stretch",
     padding: 10,
     gap: 10,
     backgroundColor: MainColors.backgroundPrimary,
@@ -20,22 +20,30 @@ export default StyleSheet.create({
     fontSize: 20,
   },
   field: {
-    flexDirection: "row",
+    flexDirection: "column",
     alignItems: "stretch",
-    gap: 10,
+    gap: 5,
   },
   textInput: {
     color: MainColors.textPrimary,
     backgroundColor: MainColors.backgroundTertiary,
-    flexGrow: 1,
-    borderRadius: 10,
+    borderRadius: 8,
     padding: 8,
   },
+  multilineTextInput:{
+    color: MainColors.textPrimary,
+    backgroundColor: MainColors.backgroundTertiary,
+    borderRadius: 8,
+    padding: 8,
+    textAlignVertical: "top"
+  },
   button:{
+    textAlign: "center",
     padding: 10,
     borderRadius: 5
   },
   buttonText:{
+    textAlign: "center",
     color: MainColors.textPrimary,
     fontSize: 16,
     fontWeight: "bold",
