@@ -6,16 +6,8 @@ import AuthService from "./AuthService";
 
 class AuthServiceImpl implements AuthService {
   async auth(email: string, password: string): Promise<User> {
-    try {
-      const { user } = await signInWithEmailAndPassword(
-        fbAuth,
-        email,
-        password
-      );
-      return { name: user.email!, email: user.email!, picture: user.photoURL };
-    } catch (error) {
-      throw error;
-    }
+    const { user } = await signInWithEmailAndPassword(fbAuth, email, password);
+    return { name: user.email!, email: user.email!, picture: user.photoURL };
   }
 }
 

@@ -8,7 +8,7 @@ interface Props {
   navigation: any,
   route: {
     params?: {
-      id?: number;
+      id?: string;
     };
   };
 }
@@ -22,13 +22,13 @@ export default function BookScreen({navigation, route}: Props) {
     if (id === undefined) {
       BookServiceImpl.add({ title, details });
     } else {
-      BookServiceImpl.update({ id, title, details });
+      BookServiceImpl.update(id, { title, details });
     }
     navigation.pop();
   }
 
-  function fetchBook() {
-    const book = BookServiceImpl.find(id);
+  async function fetchBook() {
+    const book = await BookServiceImpl.find(id);
     setTitle(book.title);
     setDetails(book.details);
   }

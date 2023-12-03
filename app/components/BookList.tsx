@@ -3,20 +3,20 @@ import Book from "../models/Book";
 import BookComponent from "./BookComponent";
 
 interface Props {
-  books: Book[];
-  onEditPress: (id: number) => void;
-  onDeletePress: (id: number) => void;
+  books: [string, Book][];
+  onEditPress: (id: string) => void;
+  onDeletePress: (id: string) => void;
 }
 
 export default function ({ books, onEditPress, onDeletePress }: Props) {
   return (
     <View style={stylesheet.list}>
-      {books.map((book) => (
+      {books.map(([id, book]) => (
         <BookComponent
           book={book}
-          onEditPress={onEditPress}
-          onDeletePress={onDeletePress}
-          key={book.id}
+          onEditPress={() => onEditPress(id)}
+          onDeletePress={() => onDeletePress(id)}
+          key={id}
         />
       ))}
     </View>

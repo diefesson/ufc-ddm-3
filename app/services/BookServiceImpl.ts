@@ -1,37 +1,41 @@
+import {
+  collection,
+  doc,
+  addDoc,
+  getDoc,
+  getDocs,
+  setDoc,
+  deleteDoc,
+} from "firebase/firestore";
 import Book from "../models/Book";
 import BookService from "./BookService";
+import { fbFirestore } from "../firebase/App";
+
+const booksCollection = collection(fbFirestore, "books");
 
 class BookServiceImpl implements BookService {
-  books: Book[] = [
-    { id: 1, title: "Livro Um", details: "Detalhes do Livro Um" },
-    { id: 2, title: "Livro Dois", details: "Detalhes do Livro Dois" },
-    { id: 3, title: "Livro Tres", details: "Detalhes do Livro Tres" },
-  ];
-  nextId = 4;
-
-  findAll(): Book[] {
-    return this.books.map((book) => ({ ...book }));
+  async findAll(): Promise<[string, Book][]> {
+    const books = [];
+    const querySnapshot = await getDocs(booksCollection);
+    querySnapshot.forEach((b) => books.push([b.id, b.data()]));
+    return books;
   }
 
-  find(id: number): Book {
-    return { ...this.books.find((book) => book.id == id) };
+  async find(id: string): Promise<Book> {
+    const docData = await getDoc(doc(fbFirestore, booksCollection.path, id));
+    return docData.data() as unknown as Book;
   }
 
-  add(book: Book): Book {
-    book = { ...book, id: this.nextId++ };
-    this.books.push(book);
-    return { ...book };
+  async add(book: Book): Promise<void> {
+    await addDoc(booksCollection, book);
   }
 
-  update(book: Book): Book {
-    const index = this.books.findIndex((b) => b.id == book.id);
-    this.books[index] = { ...book };
-    return { ...book };
+  async update(id: string, book: Book): Promise<void> {
+    await setDoc(doc(fbFirestore, booksCollection.path, id), book);
   }
 
-  remove(id: number): Book {
-    const index = this.books.findIndex((b) => b.id == id);
-    return this.books.splice(index, 1)[0];
+  async remove(id: string): Promise<void> {
+    await deleteDoc(doc(fbFirestore, booksCollection.path, id));
   }
 }
 

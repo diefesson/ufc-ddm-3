@@ -1,9 +1,13 @@
 import Book from "../models/Book";
 
 export default interface BookService {
-  findAll(): Book[];
-  find(id: number): Book;
-  add(book: Book): Book;
-  update(book: Book): Book;
-  remove(id: number): Book;
+  findAll(): Promise<[string, Book][]>;
+
+  find(id: string): Promise<Book>;
+
+  add(book: Book): Promise<void>;
+
+  update(id: string, book: Book): Promise<void>;
+
+  remove(id: string): Promise<void>;
 }

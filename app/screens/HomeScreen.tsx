@@ -6,29 +6,27 @@ import CustomButton from "../components/CustomButton";
 import BookServiceImpl from "../services/BookServiceImpl";
 import BookList from "../components/BookList";
 import Book from "../models/Book";
-import { useAppSelector } from "../state/Store";
 import TopBar from "../components/TopBar";
 
 export default function HomeScreen({ navigation }) {
-  const user = useAppSelector((state) => state.user);
   const isFocused = useIsFocused();
-  const [books, setBooks] = useState<Book[]>([]);
+  const [books, setBooks] = useState<[string, Book][]>([]);
 
   function onAddPress() {
     navigation.navigate("book");
   }
 
-  function onEditPress(id: number) {
+  function onEditPress(id: string) {
     navigation.navigate({ name: "book", params: { id } });
   }
 
-  function onDeletePress(id: number) {
+  function onDeletePress(id: string) {
     BookServiceImpl.remove(id);
     refreshBooks();
   }
 
-  function refreshBooks() {
-    setBooks(BookServiceImpl.findAll());
+  async function refreshBooks() {
+    setBooks(await BookServiceImpl.findAll());
   }
 
   useEffect(() => {

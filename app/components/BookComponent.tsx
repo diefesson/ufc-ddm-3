@@ -6,22 +6,22 @@ import CustomButton from "./CustomButton";
 
 interface Props {
   book: Book;
-  onEditPress: (id: number) => void;
-  onDeletePress: (id: number) => void;
+  onEditPress: () => void;
+  onDeletePress: () => void;
 }
 
 export default function ({
   book,
-  onEditPress: onEdit,
-  onDeletePress: onDelete,
+  onEditPress,
+  onDeletePress,
 }: Props) {
   return (
     <View style={stylesheet.card}>
       <Text style={MainStyle.mediumText}>{book.title}</Text>
       <Text style={MainStyle.smallText}>{book.details}</Text>
       <View style={stylesheet.options}>
-        <CustomButton title="EDITAR" onPress={() => onEdit(book.id)} />
-        <CustomButton type="danger" title="REMOVER" onPress={() => onDelete(book.id)} />
+        <CustomButton title="EDITAR" onPress={onEditPress} />
+        <CustomButton type="danger" title="REMOVER" onPress={onDeletePress} />
       </View>
     </View>
   );
@@ -33,9 +33,9 @@ const stylesheet = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: MainColors.backgroundSecondary,
   },
-  options:{
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    gap: 10
-  }
+  options: {
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    gap: 10,
+  },
 });
